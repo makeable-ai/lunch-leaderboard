@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src https://script.google.com https://script.googleusercontent.com; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#0b0a14">
+  <title>Lunch Roll</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="splash" class="splash" hidden aria-hidden="true">
+    <p class="splash-round">Round 1</p>
+    <p class="splash-fight">Fight!</p>
+  </div>
+
+  <header class="top">
+    <p class="eyebrow">Referral leaderboard</p>
+    <h1 class="title">Lunch Roll</h1>
+    <p class="legend"><span>Friend tries a class <b>1 pt</b></span><span>Friend signs up <b>+2 pts</b></span></p>
+  </header>
+
+  <nav class="controls" aria-label="Board controls">
+    <div class="tabs" role="group" aria-label="Time range">
+      <button type="button" id="tab-all" class="tab" aria-pressed="true">All time</button>
+      <button type="button" id="tab-month" class="tab" aria-pressed="false">This month</button>
+    </div>
+    <button type="button" id="refresh" class="icon-btn" aria-label="Refresh the board">Refresh</button>
+    <button type="button" id="sound" class="icon-btn" aria-pressed="false" aria-label="Sound off">Sound off</button>
+  </nav>
+
+  <p id="stamp" class="stamp" role="status" aria-live="polite">Loading the board&hellip;</p>
+
+  <div id="banner" class="banner" hidden role="status"></div>
+  <div id="confetti" class="confetti" aria-hidden="true"></div>
+
+  <main>
+    <h2 class="section-label">Fighters</h2>
+    <ol id="board" class="board" aria-label="Leaderboard"></ol>
+    <p id="empty" class="empty" hidden></p>
+  </main>
+
+  <dialog id="card" class="card" aria-labelledby="card-name">
+    <p class="card-kicker">Select fighter</p>
+    <div class="card-avatar" id="card-avatar" aria-hidden="true"></div>
+    <h2 id="card-name" class="card-name"></h2>
+    <p id="card-rank" class="card-rank"></p>
+    <dl class="stats">
+      <div class="stat"><dt>Trials</dt><dd id="card-trials"></dd><dd class="stat-sub" id="card-trials-pts"></dd></div>
+      <div class="stat"><dt>Signups</dt><dd id="card-signups"></dd><dd class="stat-sub" id="card-signups-pts"></dd></div>
+      <div class="stat stat-total"><dt>Points</dt><dd id="card-points"></dd></div>
+    </dl>
+    <button type="button" id="card-close" class="btn">Back to the board</button>
+  </dialog>
+
+  <noscript><p class="empty">This page needs JavaScript to show the board.</p></noscript>
+
+  <script src="js/logic.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
